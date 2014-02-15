@@ -9,7 +9,7 @@ Copyright (c) 2014 Zombiecoin Developers
 
 What is Zombiecoin?
 ----------------
-Zombiecoin is a fun educational experiment to test the long term adoption preferences of Vampirecoin, Zombiecoin & Lycancoin given initial block generation ratios of 1:17:490, respectively. The initial per-block generation rates are 6 Vampirecoins, 102 Zombiecoins & 2970 Lycancoins.
+Zombiecoin is a fun educational experiment to test the long term adoption preferences of Vampirecoin, Zombiecoin & Lycancoin given initial block generation ratios of 1:17:495, respectively. The initial per-block generation rates are 6 Vampirecoins, 102 Zombiecoins & 2970 Lycancoins.
 
 Zombiecoin is a fork from Litecoin. <== I'm really standing on the shoulders of giants so thank you!
 
