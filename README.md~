@@ -1,0 +1,39 @@
+Zombiecoin (ZMB)
+
+
+http://www.zombie-coin.org
+
+Copyright (c) 2009-2013 Bitcoin Developers
+Copyright (c) 2011-2013 Litecoin Developers
+Copyright (c) 2014 Zombiecoin Developers
+
+What is Zombiecoin?
+----------------
+Zombiecoin is an educational experiment to test the long term trading rates between 
+Vampirecoin, Zombiecoin & Lycancoin given initial ratios of 1:17:490 respectively.
+
+This program is for educational research only and is not intended for sale.
+
+1 Vampirecoin block = 17 Zombiecoin blocks = 490 Lycancoin blocks.
+Zombiecoin is a fork from Litecoin. <== I'm really standing on the shoulders of giants so thank you!
+
+ - 5 minute block targets
+ - subsidy halves in 480k blocks (~4.5 years)
+ - ~1,787,040 total coins
+ - 17 coins per block
+ - 2 hours to retarget difficulty
+
+For more information see 
+
+http://www.vampirecoin.org.
+http://www.zombie-coin.org.
+http://www.lycancoin.org.
+
+License
+-------
+
+Zombiecoin is released under the terms of the MIT license. See `COPYING` for more
+information or see http://opensource.org/licenses/MIT.
+
+
+
