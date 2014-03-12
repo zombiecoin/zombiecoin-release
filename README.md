@@ -1,5 +1,5 @@
 Zombiecoin (ZMB)
-
+version 1.0.2
 
 http://www.zombie-coin.org
 
