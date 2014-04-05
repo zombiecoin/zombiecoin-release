@@ -890,6 +890,8 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
 
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64)BlockLastSolved->nHeight < PastBlocksMin) { return bnProofOfWorkLimit.GetCompact(); }
 
+	int64 LatestBlockTime = BlockLastSolved->GetBlockTime(); //KGW patch
+
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
         if (PastBlocksMax > 0 && i > PastBlocksMax) { break; }
         PastBlocksMass++;
@@ -898,10 +900,30 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
         else		{ PastDifficultyAverage = ((CBigNum().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev; }
         PastDifficultyAveragePrev = PastDifficultyAverage;
 
-        PastRateActualSeconds			= BlockLastSolved->GetBlockTime() - BlockReading->GetBlockTime();
+//KGW patch
+		  if (LatestBlockTime < BlockReading->GetBlockTime()) {
+            if (BlockReading->nHeight > 26500) {
+                LatestBlockTime = BlockReading->GetBlockTime();
+            }
+        }
+
+ //     PastRateActualSeconds			= BlockLastSolved->GetBlockTime() - BlockReading->GetBlockTime(); //KGW patch
+		  PastRateActualSeconds = LatestBlockTime - BlockReading->GetBlockTime(); //KGW patch
         PastRateTargetSeconds			= TargetBlocksSpacingSeconds * PastBlocksMass;
         PastRateAdjustmentRatio			= double(1);
-        if (PastRateActualSeconds < 0) { PastRateActualSeconds = 0; }
+ 
+//KGW patch       
+ 		  if (BlockReading->nHeight > 26500) {
+            if (PastRateActualSeconds < 1) {
+                PastRateActualSeconds = 1;
+            }
+        } else {
+            if (PastRateActualSeconds < 0) {
+                PastRateActualSeconds = 0;
+            }
+        }       
+        
+//      if (PastRateActualSeconds < 0) { PastRateActualSeconds = 0; } //KGW patch
         if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
         PastRateAdjustmentRatio			= double(PastRateTargetSeconds) / double(PastRateActualSeconds);
         }
